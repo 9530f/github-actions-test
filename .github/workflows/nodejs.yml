@@ -19,7 +19,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        key_path: "/home/node/.ssh/id_rsa" 
         script: |
           whoami
           pwd
