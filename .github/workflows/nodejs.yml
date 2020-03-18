@@ -20,5 +20,12 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         script: |
-          whoami
-          pwd
+          cd /home/node
+          git clone https://github.com/Simonwep/intl-demo
+          cd intl-demo
+          npm i
+          npm run build
+          rm -rf /var/www/app/intl
+          mkdir /var/www/app/intl
+          mv dist/* /var/www/app/intl
+          echo "Done!"
