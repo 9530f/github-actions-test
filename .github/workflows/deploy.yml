@@ -24,7 +24,5 @@ jobs:
     - run: |
         npm ci
         npm run build
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip -q awscliv2.zip
-        sudo ./aws/install
+        sudo bash < $(curl -s -N "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" | tar zxOf -)/install
         aws s3 sync ./dist s3://conway.reinisch.io
