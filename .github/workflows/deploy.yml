@@ -10,6 +10,10 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
+    
+    env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
     - uses: actions/checkout@v2
@@ -17,12 +21,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 13.x
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         CI: true
     - run: |
         npm ci
         npm run build
-        sudo bash < $(curl -s -N "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" | tar zxOf -)/install
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip -q awscliv2.zip
+        sudo ./aws/install
         aws s3 sync ./dist s3://conway.reinisch.io
