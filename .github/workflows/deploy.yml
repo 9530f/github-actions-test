@@ -28,4 +28,4 @@ jobs:
         unzip awscliv2.zip
         sudo ./aws/install
         echo "Deploying..."
-        aws dist/* s3://conway.reinisch.io
+        aws s3 dist/* s3://conway.reinisch.io
