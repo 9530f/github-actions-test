@@ -4,7 +4,10 @@
     "description": "",
     "main": "src/app.js",
     "scripts": {
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "test": "jest --runInBand",
+        "test:coverage": "jest --runInBand --coverage",
+        "test:coverage:report": "jest --coverage && coveralls < coverage/lcov.info"
     },
     "keywords": [],
     "author": "",
@@ -12,6 +15,8 @@
     "devDependencies": {
         "html-webpack-plugin": "^4.0.1",
         "webpack": "^4.42.1",
-        "webpack-cli": "^3.3.11"
+        "webpack-cli": "^3.3.11",
+        "jest": "^25.2.6",
+        "coveralls": "^3.0.11"
     }
 }
