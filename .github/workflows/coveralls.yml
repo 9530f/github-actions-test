@@ -16,6 +16,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run test:coverage
+      - run: pwd && ls -la
         env:
           CI: true
 
