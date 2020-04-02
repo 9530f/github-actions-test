@@ -19,6 +19,7 @@ jobs:
         env:
           CI: true
 
+      - uses: actions/checkout@v2
       - name: Coveralls 
         uses: coverallsapp/github-action@master
         with:
