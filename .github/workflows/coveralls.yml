@@ -18,9 +18,9 @@ jobs:
       - name: Install dependencies and test
         run: |
           npm ci
-          npm run test
+          npm run test:coverage
           ls -la
-          pwa
+          pwd
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
