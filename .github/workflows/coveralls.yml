@@ -14,14 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm ci
-      - run: npm run test:coverage
-      - run: pwd && ls -la
+      - run: npm run test:coverage:report
         env:
           CI: true
-
-      - uses: actions/checkout@v2
-      - name: Coveralls 
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
