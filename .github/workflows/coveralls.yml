@@ -6,10 +6,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-    env: 
-      COVERALLS_REPO_TOKEN: "${{ secrets.GITHUB_TOKEN  }}"
-      COVERALLS_GIT_BRANCH: "${{ github.ref }}"
 
     steps:
       - uses: actions/checkout@v2
@@ -22,6 +18,12 @@ jobs:
       - name: Install dependencies and test
         run: |
           npm ci
-          npm run test:coverage:report
-          ls -la
-          pwd
+          npm run test:coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./coverage/lcov.info
+          parallel-finished: true
+          parallel: true
