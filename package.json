@@ -7,7 +7,7 @@
         "build": "webpack --mode production",
         "test": "jest --runInBand",
         "test:coverage": "jest --runInBand --coverage",
-        "test:coverage:report": "jest --coverage && pwd && coveralls < ./coverage/lcov.info"
+        "test:coverage:report": "jest --coverage && coveralls < coverage/lcov.info"
     },
     "keywords": [],
     "author": "",
