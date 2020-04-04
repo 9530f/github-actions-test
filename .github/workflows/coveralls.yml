@@ -18,13 +18,6 @@ jobs:
       - name: Install dependencies and test
         run: |
           npm ci
-          npm run test:coverage
+          npm run test:coverage:report
           ls -la
           pwd
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./coverage/lcov.info
-          parallel: true
