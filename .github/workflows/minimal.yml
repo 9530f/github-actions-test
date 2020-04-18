@@ -8,8 +8,8 @@ on:
 
 jobs:
     build:
+        name: Execute remote commands
         runs-on: ubuntu-latest
 
         steps:
-            - name: Execute remote commands
             - run: echo 123
