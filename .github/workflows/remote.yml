@@ -23,6 +23,7 @@ jobs:
        key: ${{ secrets.KEY }}
        script: |
          echo "Hello World!"
+         echo "Hello World2"
          cd ~ 
          ls
          whoami
