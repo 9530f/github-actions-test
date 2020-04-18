@@ -9,8 +9,7 @@ on:
 jobs:
   build:
 
+    name: sss
     runs-on: ubuntu-latest
-
     steps:
-    - name: Simpler
-    - run: echo "Wow"
+     - run: echo "Wow"
