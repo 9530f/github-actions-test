@@ -8,8 +8,6 @@ on:
 
 jobs:
   build:
-
-    name: sss
     runs-on: ubuntu-latest
     steps:
      - run: echo "Wow"
